@@ -20,15 +20,23 @@
         .profile-header {
             background-color: #f2f2f2;
             border: 1px solid #cccccc;
-            padding: 20px;
+            padding: 15px;
             margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
         .profile-header img {
             width: 48px;
             height: 48px;
             border-radius: 3px;
-            float: left;
-            margin-right: 10px;
+            margin-right: 15px;
+        }
+        .profile-header .bio {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 0;
+            justify-content: flex-start; /* Ensures text aligns to the left */
         }
         .profile-header h1 {
             margin: 0;
@@ -42,17 +50,17 @@
             display: inline;
         }
         .profile-header p {
-            margin: 10px 0 0;
+            margin: 5px 0 0;
             color: #555555;
         }
         .profile-header .follow-button {
             background-color: #00aced;
             color: #ffffff;
             border: none;
-            padding: 5px 10px;
+            padding: 10px 20px;
             cursor: pointer;
-            float: right;
-            margin-top: -10px;
+            height: 100%;
+            align-self: stretch;
         }
         .profile-header .follow-button:hover {
             background-color: #0094cc;
@@ -86,8 +94,8 @@
             padding: 10px 0;
         }
         .tweet img {
-            width: 32px;
-            height: 32px;
+            width: 48px;
+            height: 48px;
             border-radius: 3px;
             margin-right: 10px;
         }
@@ -125,9 +133,11 @@
     <div class="container">
         <div class="profile-header">
             <img src="https://i.postimg.cc/zGGXKMGk/avatars-8-JXl-NWCBly3-Juu-Pc-Mi-X8a-Q-t200x200.jpg" alt="Profile Picture">
-            <h1>clckk</h1>
-            <h2>@clckk</h2>
-            <p>Producer | Los Angeles, CA 🌴</p>
+            <div class="bio">
+                <h1>clckk</h1>
+                <h2>@clckk</h2>
+                <p>Producer | Los Angeles CA</p>
+            </div>
             <button class="follow-button">Follow</button>
         </div>
         <div class="tabs">
@@ -142,7 +152,7 @@
                 <div class="tweet-details">
                     <span class="tweet-name">clckk</span>
                     <span class="tweet-username">@clckk</span>
-                    <p class="tweet-text">My latest music lives <a href="https://soundcloud.com/clckk" target="_blank">here.</a></p>
+                    <p class="tweet-text">My latest music lives <a href="https://soundcloud.com/clckk" target="_blank">here</a></p>
                     <div class="tweet-actions">
                         <a href="#">Reply</a>
                         <a href="#">Retweet</a>
@@ -155,7 +165,7 @@
                 <div class="tweet-details">
                     <span class="tweet-name">clckk</span>
                     <span class="tweet-username">@clckk</span>
-                    <p class="tweet-text">my instagram is <a href="https://www.instagram.com/clckk.silk/" target="_blank">@clckk.silk.</a></p>
+                    <p class="tweet-text">my instagram is <a href="https://www.instagram.com/clckk.silk/" target="_blank">@clckk.silk</a></p>
                     <div class="tweet-actions">
                         <a href="#">Reply</a>
                         <a href="#">Retweet</a>
@@ -168,7 +178,7 @@
                 <div class="tweet-details">
                     <span class="tweet-name">clckk</span>
                     <span class="tweet-username">@clckk</span>
-                    <p class="tweet-text">and i curate media over here ;) <a href="https://bones.silk.cx/@clckk" target="_blank">@clckk.</a></p>
+                    <p class="tweet-text">and i curate media over here ;) <a href="https://bones.silk.cx/@clckk" target="_blank">@clckk</a></p>
                     <div class="tweet-actions">
                         <a href="#">Reply</a>
                         <a href="#">Retweet</a>
@@ -180,4 +190,7 @@
     </div>
 </body>
 </html>
+
+
+
 
