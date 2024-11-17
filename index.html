@@ -1,17 +1,93 @@
+html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clckk Music</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clckk's Terminal Music Hub</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        a {
+            color: #0ff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section-title {
+            border-bottom: 1px solid #fff;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+        .post {
+            margin-bottom: 20px;
+        }
+        .post-title {
+            font-weight: bold;
+        }
+        .post-caption {
+            color: #aaa;
+        }
+    </style>
 </head>
 <body>
-  <h1>Welcome to Clckk Music</h1>
-  <p>Here are my links:</p>
-  <ul>
-    <li><a href="https://soundcloud.com/clckkmusic" target="_blank">SoundCloud</a></li>
-    <li><a href="https://spotify.com/clckkmusic" target="_blank">Spotify</a></li>
-  </ul>
+    <div class="container">
+        <div class="section">
+            <div class="section-title">SoundCloud Recent Uploads</div>
+            <div id="soundcloud-tracks"></div>
+        </div>
+        <div class="section">
+            <div class="section-title">Instagram Latest Post</div>
+            <div id="instagram-post"></div>
+        </div>
+        <div class="section">
+            <div class="section-title">Connect with Me</div>
+            <p><a href="https://discord.com/users/clckk" target="_blank">Add me on Discord: clckk</a></p>
+        </div>
+    </div>
+
+    <script>
+        async function fetchSoundCloudTracks() {
+            const response = await fetch('https://api-v2.soundcloud.com/users/27983846/tracks?client_id=a1e03910c7744580b83f62c577328d68&limit=3');
+            const tracks = await response.json();
+            const container = document.getElementById('soundcloud-tracks');
+            tracks.forEach(track => {
+                const trackElement = document.createElement('div');
+                trackElement.className = 'post';
+                trackElement.innerHTML = `<div class="post-title"><a href="${track.permalink_url}" target="_blank">${track.title}</a></div>`;
+                container.appendChild(trackElement);
+            });
+        }
+
+        async function fetchInstagramPost() {
+            // Note: Instagram does not provide a public API for fetching user posts without authentication.
+            // This is a placeholder. In a real-world scenario, you would need to use Instagram Graph API with proper authentication.
+            const container = document.getElementById('instagram-post');
+            const postElement = document.createElement('div');
+            postElement.className = 'post';
+            postElement.innerHTML = `
+                <div class="post-title"><a href="https://www.instagram.com/clckk.silk/" target="_blank">Check out my latest post</a></div>
+                <div class="post-caption">This is a placeholder caption for the latest Instagram post.</div>
+            `;
+            container.appendChild(postElement);
+        }
+
+        fetchSoundCloudTracks();
+        fetchInstagramPost();
+    </script>
 </body>
 </html>
